@@ -8,7 +8,7 @@ export default function App() {
       <MapView
         provider={PROVIDER_GOOGLE} // Ensures Google Maps is used
         style={styles.map}
-        mapType="satellite"
+        // mapType="satellite"
         // mapId={"2a4ffedc97791356"}
         initialRegion={{
           latitude: 37.78825,
