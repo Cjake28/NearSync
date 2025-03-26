@@ -12,7 +12,7 @@ export default function Index() {
       if (isAuthenticated) {
         router.replace('/map');   // Go to map if logged in
       } else {
-        router.replace('/auth/signin');  // Go to signin if not logged in
+        router.replace('/signin');  // Go to signin if not logged in
       }
     }, 1000); // 1-second delay for loading effect
 
