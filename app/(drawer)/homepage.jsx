@@ -14,6 +14,7 @@ const HomePage = () => {
         <MapView
           style={{ flex: 1 }}
           provider={PROVIDER_GOOGLE}
+            mapType="standard"
           region={
             location
               ? {
@@ -30,6 +31,8 @@ const HomePage = () => {
                 }
           }
           showsUserLocation
+          showsMyLocationButton={true} // Shows the location button
+            toolbarEnabled={true}
         >
           {location && (
             <Marker
