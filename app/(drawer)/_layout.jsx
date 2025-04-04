@@ -1,11 +1,8 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Slot } from 'expo-router'
+import { Slot } from 'expo-router';
+import { View, StatusBar } from 'react-native';
 
-const _layout = () => {
+export default function Layout() {
   return (
-<Slot/>
-  )
+      <Slot />
+  );
 }
-
-export default _layout

@@ -1,23 +1,30 @@
 import { useEffect } from 'react';
 import { useRouter } from 'expo-router';
 import { View, ActivityIndicator } from 'react-native';
+import useAuthStore from '../store/authStore.jsx';
 
 export default function Index() {
   const router = useRouter();
+  const { isAuthenticated, isverifying } = useAuthStore();
 
   useEffect(() => {
-    // Simulate a loading state or add auth check logic
     const timer = setTimeout(() => {
-      const isAuthenticated = false; // Replace with auth logic
       if (isAuthenticated) {
-        router.replace('/map');   // Go to map if logged in
+          router.replace('/map'); // Authenticated and verified
+
       } else {
-        router.replace('/signin');  // Go to signin if not logged in
+        if (isverifying) {
+          router.replace('/verify'); // If verifying, go to verify
+
+        } else{
+        router.replace('/signin'); // Not logged in
+        
+        }
       }
-    }, 1000); // 1-second delay for loading effect
+    }, 100); // Delay a bit for layout to finish loading
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isAuthenticated, isverifying]);
 
   return (
     <View className="flex-1 justify-center items-center bg-background">

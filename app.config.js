@@ -18,17 +18,19 @@ export default {
     ios: {
       supportsTablet: true,
       config: {
-        googleMapsApiKey: "${GOOGLE_MAPS_API_KEY}", // ✅ Fixed
+        googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
       },
     },
     android: {
+      package: "com.netsu28.nearsync",
+      versionCode: 1,
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#ffffff",
       },
       config: {
         googleMaps: {
-          apiKey: "${GOOGLE_MAPS_API_KEY}", // ✅ Fixed
+          apiKey: process.env.GOOGLE_MAPS_API_KEY,
         },
       },
     },
@@ -46,7 +48,11 @@ export default {
       ]
     ],
     extra: {
-      googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY, // ✅ Ensures correct resolution
+      googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+      eas: {
+        projectId: "06f7e70e-cbff-4969-938a-a314257698df"
+      }
     },
+
   },
 };

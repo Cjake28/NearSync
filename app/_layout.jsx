@@ -1,8 +1,12 @@
 import "../global.css"
-import { Stack } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { View } from 'react-native';
+import { Slot } from 'expo-router';
+import { View, StatusBar } from 'react-native';
 
 export default function Layout() {
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <View className="flex-1 bg-background">
+      <StatusBar barStyle="dark-content" />
+      <Slot /> {/* <- THIS is required to render child screens like /signin or /verify */}
+    </View>
+  );
 }
